@@ -3,14 +3,18 @@
 
 function bubbleSort(arr) {
   // Implement bubblesort
+  let hasSwapped = false;
   for (let i = 0; i < arr.length; i++) {
+    hasSwapped = false;
     for (let j = 0; j < (arr.length - i - 1); j++) {
       if (arr[j] > arr[j+1]) {
         const lesser = arr[j+1];
         arr[j+1] = arr[j];
         arr[j] = lesser;
+        hasSwapped = true;
       }
     }
+    if (!hasSwapped) return arr;
   }
 
   // return the sorted array

@@ -14,6 +14,35 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  if (n === 0) {
+    return '';
+  }
+  const rowLength = 1 + (n - 1) * 2;
+  let pad = (rowLength - 1) / 2;
+  const arr = new Array(rowLength);
+
+  for (let i = 1; i <= n; i++) {
+    arr.fill(' ', 0, pad);
+    arr.fill('#', pad, rowLength - pad);
+    arr.fill(' ', rowLength - pad);
+    console.log(arr.join(''));
+    pad -= 1;
+  }
+  // const printPyramid = (pad) => {
+  //   if (pad === 0) {
+  //     arr.fill('#');
+  //     return console.log(arr.join(''));
+  //   } else {
+  //     arr.fill(' ', 0, pad);
+  //     arr.fill('#', pad, rowLength - pad);
+  //     arr.fill(' ', rowLength - pad);
+  //     console.log(arr.join(''));
+  //     printPyramid(pad - 1);
+  //     return;
+  //   }
+  // }
+  // printPyramid(pad1);
+}
 
 module.exports = pyramid;
